@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Bhuu 🌸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      background: linear-gradient(#ffe6f0, #fff5fa);
+      font-family: 'Poppins', cursive;
+      overflow: hidden;
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+    }
+    .sky {
+      background: radial-gradient(circle at top, #ffe6ff 0%, #ffffff 100%);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .message {
+      position: absolute;
+      top: 20%;
+      width: 100%;
+      text-align: center;
+      font-size: 2.2rem;
+      color: #e91e63;
+      opacity: 0;
+      animation: fadeMsg 4s ease-in-out forwards;
+    }
+    @keyframes fadeMsg {
+      0% {opacity: 0; transform: scale(0.8);}
+      50% {opacity: 1; transform: scale(1);}
+      100% {opacity: 0;}
+    }
+    .final-text {
+      font-family: 'Pacifico', cursive;
+      position: absolute;
+      bottom: 100px;
+      width: 100%;
+      text-align: center;
+      font-size: 2.5rem;
+      color: #ff1493;
+      text-shadow: 0 0 15px pink;
+      animation: glow 2s infinite alternate;
+      display: none;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px pink; }
+      to { text-shadow: 0 0 20px hotpink; }
+    }
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+      opacity: 0.5;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -7px;
+      left: 0;
+    }
+    .heart::after {
+      left: -7px;
+      top: 0;
+    }
+    @keyframes float {
+      0% {transform: translateY(0) rotate(45deg);}
+      100% {transform: translateY(-120vh) rotate(45deg);}
+    }
+    .btn {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff1493;
+      animation: bounce 2s infinite;
+      display: none;
+    }
+    @keyframes bounce {
+      0%, 100% {transform: translate(-50%, 0);}
+      50% {transform: translate(-50%, -10px);}
+    }
+    .burst {
+      position: absolute;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+    @keyframes explode {
+      0% {transform: scale(1);}
+      100% {transform: scale(4); opacity: 0;}
+    }
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: wiggle 1s infinite alternate;
+    }
+    @keyframes wiggle {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(10deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky"></div>
+
+  <div class="message" style="animation-delay:2s;">Always with you ❤️</div>
+  <div class="message" style="animation-delay:6s;">Always for you ❤️</div>
+  <div class="message" style="animation-delay:10s;">Always youu ❤️</div>
+  <div class="message" style="animation-delay:14s;">THE CUTEST Girllll 🥹💖</div>
+  <div class="message" style="animation-delay:18s;">Chlti Firtiii UNIVERSEEEEE 💫🫶🙈</div>
+
+  <div class="final-text" id="finalText">HAPPY BIRTHDAY BHUU ✨</div>
+  <button class="btn" id="thankBtn">Thank You 🌷</button>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/02/27/audio_e89e87fbc5.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const sky = document.getElementById("sky");
+    const btn = document.getElementById("thankBtn");
+    const finalText = document.getElementById("finalText");
+
+    // Create 1000 floating hearts
+    for (let i = 0; i < 1000; i++) {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.bottom = `${Math.random() * 100}vh`;
+      heart.style.animationDelay = `${Math.random() * 10}s`;
+      heart.style.background = `rgba(255, ${100 + Math.random()*155}, ${150 + Math.random()*105}, 0.7)`;
+      sky.appendChild(heart);
+    }
+
+    setTimeout(() => {
+      btn.style.display = "block";
+      finalText.style.display = "block";
+    }, 23000);
+
+    btn.onclick = () => {
+      for (let i = 0; i < 100; i++) {
+        const burst = document.createElement("div");
+        burst.className = "burst";
+        burst.style.left = `${50 + Math.random() * 30 - 15}%`;
+        burst.style.top = `${50 + Math.random() * 30 - 15}%`;
+        burst.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 1000);
+      }
+
+      for (let i = 0; i < 20; i++) {
+        const em = document.createElement("div");
+        em.className = "emoji";
+        em.innerText = i % 2 === 0 ? "🍻" : "🙈";
+        em.style.left = `${Math.random() * 100}vw`;
+        em.style.top = `${Math.random() * 100}vh`;
+        document.body.appendChild(em);
+        setTimeout(() => em.remove(), 3000);
+      }
+
+      const finalMsg = document.createElement("div");
+      finalMsg.className = "final-text";
+      finalMsg.innerText = "Forever Yours, Racoo💘";
+      finalMsg.style.bottom = "20px";
+      finalMsg.style.fontSize = "2rem";
+      document.body.appendChild(finalMsg);
+    };
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
